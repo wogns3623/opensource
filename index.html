@@ -3,7 +3,8 @@
     <title>first</title>
 </head>
 <body bgcolor="#2EFEF7" leftmargin="40" topmargin="40">
-<!--bgcolor: 배경색, leftmargin: 왼쪽 여백, topmargin: 상단 여백-->
+<!--bgcolor: 배경색, background: 배경 이미지 사용법은 이미지 올리는것과 동일
+leftmargin: 왼쪽 여백, topmargin: 상단 여백-->
 <p>p 태그는 문단을 분류할 때 사용<a name="top"></a>
 또한 br태그는<br>
 단순히 줄바꿈을 하는 용도임.</p>
@@ -36,14 +37,40 @@
 <p style="height:600px">스크롤 효과를 위한 문단 높이 지정</p>
 
 <p>
-	상대경로로 지정한 이미지
-	<img src="images/냥냐이.jpg">
-	<img src="images/페페.jpg" width="800" height="400" >
-	<img src="images/파이리.jpg">
+	상대경로로 지정한 이미지<br>
+	<img src="images/냥냐이.jpg" align="top">냥냐이<br>
+	<img src="images/페페.jpg" align="middle">슬픈 개구리<br>
+	<img src="images/파이리.png" align="bottom">파이리<br>
 	
-	절대경로로 지정한 이미지
-	<img alt="이미지 로드 안됬을때" src="http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE"></a>
-
+	절대경로로 지정한 이미지<br>
+	<img alt="이미지 로드 안됬을때" src="http://img1.daumcdn.net/thumb/R960x0/?fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE"  width="200" height="120" align="left", hspace="50", vspace="10"> 대신귀<br>어운멍<br>머이를<br>드리겠<br>습니다<br>
+</p>
+<br>
+<p>
+	<!--
+		cellpadding, cellspacing으로 경계선과 셀 안의 내용, 셀과 셀 사이의 공간크기를 정할 수 있다.
+		width나 height보다 우선적으로 적용되는듯
+	-->
+	<table border="1" bgcolor="green">
+	<tr align="center">
+		<td colspan="2"><font color="white" size="6">
+		<a href="http://www.homejjang.com/03/table.php">
+			테이블
+		</a>
+		</font></td>
+		<td colspan="1"><font color="white" size="6">입니다</font></td>
+		<td rowspan="2">크기를 지정하지 않으면 자동으로 맞춰짐.<br> colspan으로 행, rowspan으로 열을 확장할 수 있다.</td>
+	</tr>
+	<tr bgcolor="grey">
+		<td width="100">tr은 행, td는 열이다.</td>
+		<td width="100">크기는 아래쪽, 오른쪽이 우선되게 맞춰짐</td>
+		<td width="200">행, 열마다 색 따로 지정 가능</td>
+	</tr>
+	</table>
+	
+	<br><br>
+	
+	
 </p>
 
 <p align="center"><a name="bottom" href="#top">문서 상단으로</a></p>
