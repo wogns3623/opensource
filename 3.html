@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Open Source Introduction</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin:0px;
+			padding:0px;
+		}
+		#drop ul {
+			list-style:none;
+		}
+		#drop ul li {
+			background-color: #35424a;
+			border: 1px solid #fff;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			float: left;
+			position: relative;
+		}
+		#drop ul li a {
+			text-decoration: none;
+			color: white;
+			display: block;
+		}
+		#drop ul li a:hover {
+			background-color: #e8491d;
+		}
+		#drop ul ul {
+			display: none;
+			position: absolute;
+		}
+		#drop ul li:hover >ul {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<body bgcolor='skyblue'>
+	<h1>Open Source Introduction</h1>
+    <p style="height:12px;"></p> 
+	<div id="drop">
+		<ul>
+			<li><a href="#">소개</a></li>
+			<li><a href="#">기능</a></li>
+			<li><a href="#">예시</a>
+				<ul>
+					<li><a href="#">리눅스</a>
+					<li><a href="#">모름</a>
+					<li><a href="#">아직안봄</a>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
