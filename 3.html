@@ -35,6 +35,30 @@
 		#drop ul li:hover >ul {
 			display: block;
 		}
+		.floating { 
+			background-color:#fff; /* 목차 내부 색상 */
+			border:2px solid #000; /* 테두리 색깔 및 두께 */
+			position: fixed; 
+			right: 50%; 
+			top: 180px; 
+			margin-right: -615px; 
+			text-align:center; 
+			width:70px; 
+			border-radius: 8px; 
+			-webkit-border-radius: 8px; 
+		} 
+		.floating div:nth-child(1){ /* 첫번째 목록 설정 */
+			border:1px solid #000;  /* 테두리 색깔 및 두께 */
+			border-radius: 6px; /* 둥근 정도 조절, 커질수록 원형에 가까워짐 */
+		} 
+		.floating div:nth-child(2){ 
+			border:1px solid #000;
+			border-radius: 6px; 
+			} 
+		.floating div:nth-child(3){ 
+			border:1px solid #000; 
+			border-radius: 6px; 
+		}
 	</style>
 </head>
 <body>
@@ -43,16 +67,33 @@
     <p style="height:12px;"></p> 
 	<div id="drop">
 		<ul>
-			<li><a href="#">소개</a></li>
-			<li><a href="#">기능</a></li>
-			<li><a href="#">예시</a>
+			<li><a href="#570">dd</a></li>
+			<li><a href="#790">dd</a></li>
+			<li><a href="#900">dd</a></li>
+			<li><a href="#man">dd</a>
 				<ul>
-					<li><a href="#">리눅스</a>
-					<li><a href="#">모름</a>
-					<li><a href="#">아직안봄</a>
+					<li><a href="#">dd</a>
+					<li><a href="#">dd</a>
+					<li><a href="#">dd</a>
 				</ul>
 			</li>
 		</ul>
+	<br><br><br>
+	<h1><a name="570">1</a></h1>
+	<p style="height:500px;"></p> 
+	<h1><a name="790">2</a></h1>
+	<p style="height:500px;"></p> 
+	<h1><a name="900">3</a></h1>
+	<p style="height:500px;"></p> 
+	<h1><a name="man">4</a></h1>
+	<p style="height:500px;"></p> 
 	</div>
+	<div class="floating"> 
+		<div>목차 따라오기 연습</div> 
+		<div><a href="#aa">링크 이동 연습</a></div> 
+		<div>ㅇㅇ</div> 
+	</div>
+	<p style="height:500px;"></p> 
+	<p><a name="aa">ddd</a></p>
 </body>
 </html>
