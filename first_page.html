@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            html{border: 1px solid black;}
+            div{
+                border: 3px solid black;
+                margin: 10px;
+            }
+            #header{
+                height: 100px;
+            }
+            #contents{
+                display: flex;
+                margin-top: 100px;
+            }
+            #leftmargin, #rightmargin{
+                width: 100%;
+                border: 0px;
+            }
+            #intro{
+                height: 200px;
+                background-color: aqua;
+                flex-shrink: 0;
+                margin-right: 10px;
+                -webkit-transition: width 500ms, height 500ms;
+                transition: width 500ms, height 500ms;
+            }
+            #history{
+                height: 200px;
+                background-color: aqua;
+                flex-shrink: 0;
+                -webkit-transition: width 500ms, height 500ms;
+                transition: width 500ms, height 500ms;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    <body>
+        <div id="header" align="center">
+            제목
+        </div>
+        <section id="contents">
+            <div id="leftmargin"></div>
+            <a href="intro.html" id="intro" align="center">소개</a>
+            <a href="history.html" id="history" align="center">역사</a>
+            <div id="rightmargin"></div>
+        </section>
+
+        <script>
+            const box_width = 200;
+            const change_width = 50;
+            $("#intro").css("width", box_width+"px");
+            $("#history").css("width", box_width+"px");
+
+            $("#intro").hover(() => {
+                $("#intro").css("width", box_width+change_width+"px");
+                $("#history").css("width", box_width-change_width+"px");
+            }, () => {
+                $("#intro").css("width", box_width+"px");
+                $("#history").css("width", box_width+"px")
+            });
+            $("#history").hover(() => {
+                $("#history").css("width", box_width+change_width+"px");
+                $("#intro").css("width", box_width-change_width+"px");
+            }, () => {
+                $("#intro").css("width", box_width+"px");
+                $("#history").css("width", box_width+"px")
+            });
+        </script>
+    </body>
+</html>
