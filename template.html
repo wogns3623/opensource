@@ -9,56 +9,67 @@
     <script src="main.js"></script> -->
 
     <style>
-        html{
-            
-            border: 1px solid black;
-        }
-
         .wrap{
+            margin-top: 20px;
         }
 
-        .menu{
-            position:fixed;
-
-            border: 1px solid black;
+        #contents{
+            display: flex;
         }
 
-        .menu#box{
-            width: 170px;
-            height: 100px;
-        }
-        .menu#name{
-            position: relative;
-            top: 25px;
-
-            display: block;
-            width: 100px;
-            height: 50px;
-
-            visibility: visible;
-        }
-        .menu#nav{
-            display: block;
-
-            visibility: hidden;
+        #doc_left{
+            width: 200px;
+            flex-shrink: 0;
         }
 
         .document{
-            margin-left: 170px;
-
-            position: relative;
-
             border: 1px solid black;
-
-            padding: 10px;
 
             display: block;
             width: 100%;
             height: 1000px;
+
+            padding: 10px;
+        }
+
+        .menu{
+            position:fixed;
+        }
+
+        .menu#box{
+            top: 20px;
+            left: 30px;
+
+            width: 170px;
+            height: 100px;
+
+            background-color: black;
+        }
+        .menu#name{
+            visibility: visible;
+
+            position: relative;
+            top: 25px;
+            left: 40px;
+
+            display: block;
+            width: 120px;
+            height: 50px;
+
+            background-color: aqua;
+
+            text-align: center;
+        }
+        .menu#nav{
+            visibility: hidden;
+
+            display: block;
         }
 
         .nav{
             position: fixed;
+            top: 40%;
+            right: 10px;
 
             border: 1px solid black;
 
@@ -69,10 +80,22 @@
 <body>
     <div class="wrap">
 
+        <section id="contents">
+            <div class="layout-margin" id="doc_left"></div>
+            <div class="document">
+                contents
+            </div>
+        </section>
+
+    </div>
+
+    <div class="independent">
+
         <section id="header">
             <div class="menu" id="box" >
                 <div class="menu" id="name">
-                    opensource
+                    opensource<br>
+                    아이콘 들어감
                 </div>
 
                 <div class="menu" id="nav">
@@ -84,16 +107,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="contents">
-            <div class="document">
-                contents
-            </div>
-        </section>
-
-    </div>
-
-    <div class="independent">
 
         <section id="navgationBox">
             <div class="nav" id="nav_box">
