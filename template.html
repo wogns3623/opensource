@@ -10,51 +10,98 @@
 
     <style>
         html{
+            
             border: 1px solid black;
-            margin: 0px;
         }
 
         .wrap{
-            border: 0px solid black;
-            display: flex;
         }
 
-        #header, #contents{
-            border: 1px solid black;
-            margin: 10px;
-        }
-
-        #header{
+        .menu{
             position:fixed;
+
+            border: 1px solid black;
+        }
+
+        .menu#box{
             width: 170px;
             height: 100px;
-            flex-shrink: 0;
+        }
+        .menu#name{
+            position: relative;
+            top: 25px;
+
+            display: block;
+            width: 100px;
+            height: 50px;
+
+            visibility: visible;
+        }
+        .menu#nav{
+            display: block;
+
+            visibility: hidden;
         }
 
-        #contents{
-            margin-left: 180px;
+        .document{
+            margin-left: 170px;
+
+            position: relative;
+
+            border: 1px solid black;
+
+            padding: 10px;
+
+            display: block;
             width: 100%;
             height: 1000px;
         }
 
-        #nav{
+        .nav{
             position: fixed;
-            display: block;
+
             border: 1px solid black;
+
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div id="header" >
-            menu
-        </div>
-        <div id="contents">
-            contents
-        </div>
-        <div id="nav">
-            nav
-        </div>
+
+        <section id="header">
+            <div class="menu" id="box" >
+                <div class="menu" id="name">
+                    opensource
+                </div>
+
+                <div class="menu" id="nav">
+                    <ol>
+                        <li>menu1</li>
+                        <li>menu2</li>
+                        <li>menu3</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="contents">
+            <div class="document">
+                contents
+            </div>
+        </section>
+
     </div>
+
+    <div class="independent">
+
+        <section id="navgationBox">
+            <div class="nav" id="nav_box">
+                nav
+            </div>
+        </section>
+
+    </div>
+    
 </body>
 </html>
