@@ -22,7 +22,6 @@
                 height: 200px;
                 background-color: aqua;
                 flex-shrink: 0;
-                margin-right: 10px;
                 -webkit-transition: width 500ms, height 500ms;
                 transition: width 500ms, height 500ms;
             }
@@ -49,23 +48,36 @@
 
         <script>
             const box_width = 200;
-            const change_width = 50;
+            const box_height = box_width;
+            const center_margin = 10;
+            const change = 50;
             $("#intro").css("width", box_width+"px");
             $("#history").css("width", box_width+"px");
 
+            $("#intro").css("margin-right", center_margin+"px");
+
             $("#intro").hover(() => {
-                $("#intro").css("width", box_width+change_width+"px");
-                $("#history").css("width", box_width-change_width+"px");
+                $("#intro").css("width", box_width+change+"px");
+                $("#history").css("width", box_width-change+"px");
+                $("#intro").css("height", box_height+change+"px");
+                $("#history").css("height", box_height-change+"px");
+
             }, () => {
                 $("#intro").css("width", box_width+"px");
-                $("#history").css("width", box_width+"px")
+                $("#history").css("width", box_width+"px");
+                $("#intro").css("height", box_height+"px");
+                $("#history").css("height", box_height+"px");
             });
             $("#history").hover(() => {
-                $("#history").css("width", box_width+change_width+"px");
-                $("#intro").css("width", box_width-change_width+"px");
+                $("#history").css("width", box_width+change+"px");
+                $("#intro").css("width", box_width-change+"px");
+                $("#history").css("height", box_height+change+"px");
+                $("#intro").css("height", box_height-change+"px");
             }, () => {
                 $("#intro").css("width", box_width+"px");
-                $("#history").css("width", box_width+"px")
+                $("#history").css("width", box_width+"px");
+                $("#intro").css("height", box_height+"px");
+                $("#history").css("height", box_height+"px");
             });
         </script>
     </body>
