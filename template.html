@@ -15,33 +15,9 @@
     
     <!--아래 css의 크기들은 임의적인 것임. 더 괜찮다 싶은 크기가 있으면 수정해주길 바람-->
     <style>
-        .wrap{
-            margin-top: 20px;
-        }
-
-        #contents{
-            display: flex;
-        }
-
-        .layout_margin#doc_left{
-            width: 200px;
-            flex-shrink: 0;
-        }
-
-        .document{
-            border: 1px solid black;
-
-            display: block;
-            width: 100%;
-            height: 1000px;
-
-            padding: 10px;
-        }
-
         .menu{
             position:fixed;
         }
-
         .menu#box{
             top: 20px;
             left: 30px;
@@ -73,6 +49,24 @@
             display: block;
         }
 
+        main{
+            margin-top: 20px;
+            display: flex;
+        }
+        .layout_margin#doc_left{
+            width: 200px;
+            flex-shrink: 0;
+        }
+        article{
+            border: 1px solid black;
+
+            display: block;
+            width: 100%;
+            height: 1000px;
+
+            padding: 10px;
+        }
+
         .nav{
             position: fixed;
             top: 35%;
@@ -101,61 +95,55 @@
     <!--자바스크립트 추가 예정(메뉴 바 상호작용, 네비게이션 바 이동, 상단 바 노출(시간적 여유가 될 때)-->
 </head>
 <body>
-	<a name="aa">aa</a>
-    <!--전체 문서의 구조-->
-    <div class="wrap">
-        
-        <section id="contents">
-            <!--문서 왼쪽 메뉴 부분을 위한 여백 지정-->
-            <div class="layout_margin" id="doc_left"></div>
+    <a name="aa"></a>
+    <header>
+        <!--문서의 왼쪽 상단에 위치할 메뉴 박스-->
+        <div class="menu" id="box" >
 
-            <!--문서 내용-->
-            <div class="document">
-                contents
+            <!--메뉴 박스에 들어갈 로고-->
+            <div class="menu" id="name">
+                opensource<br>
+                아이콘 들어감
+            </div>
+
+            <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
+            <div class="menu" id="nav">
                 <ol>
-                	<li style="height: 250px;"><a href="#1">a</a></li>
-                	<li style="height: 250px;"><a href="#2">b</a></li>
-                	<li style="height: 250px;"><a href="#3">c</a></li>
-                	<li style="height: 250px;"><a href="#4">d</a></li>
+                    <li>menu1</li>
+                    <li>menu2</li>
+                    <li>menu3</li>
                 </ol>
             </div>
-        </section>
+        </div>
+        <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
+    </header>
 
-    </div>
+    <main>
+        <!--문서 왼쪽 메뉴 부분을 위한 여백 지정-->
+        <div class="layout_margin" id="doc_left"></div>
+
+        <!--문서 내용-->
+        <article>
+            contents
+            <ol>
+                <li style="height: 250px;"><a href="#1">a</a></li>
+            	<li style="height: 250px;"><a href="#2">b</a></li>
+            	<li style="height: 250px;"><a href="#3">c</a></li>
+            	<li style="height: 250px;"><a href="#4">d</a></li>
+            </ol>
+        </article>
+    </main>
+    
+    <a name="bb"></a>
 
     <!--독립된 개체들-->
     <div class="independent">
-
-        <section id="header">
-            <!--문서의 왼쪽 상단에 위치할 메뉴 박스-->
-            <div class="menu" id="box" >
-
-                <!--메뉴 박스에 들어갈 로고-->
-                <div class="menu" id="name">
-                    opensource<br>
-                    아이콘 들어감
-                </div>
-
-                <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
-                <div class="menu" id="nav">
-                    <ol>
-                        <li>menu1</li>
-                        <li>menu2</li>
-                        <li>menu3</li>
-                    </ol>
-                </div>
-            </div>
-            <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
-        </section>
-        <p style="height: 1200px;"></p>
-        <a name="bb">bb</a>
-
         <!--네비게이션 바--><!--구조 추가 예정(메뉴 버튼 등)-->
         <section id="navgationBox">
             <div class="nav" id="nav_box">
             	<div>리모컨</div> 
 				<hr width ="100px" color="black" size=2/>
-				<div><a href="#aa">링크 이동 연습</a></div> 
+				<div><a href=".wrap">링크 이동 연습</a></div> 
 				<hr width ="100px" color="black" size=2/>
 				<div><a href="#aa"><img src="up-arrow.png"></a><a href="#bb"><img src="down-arrow.png"></a><a href="1.html"><img src="list.png"></a></div>
         	</div>
