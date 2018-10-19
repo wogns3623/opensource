@@ -25,10 +25,11 @@
             width: 170px;
             height: 100px;
 
-            background-color: black;
+            background-color: darkgrey;
+
+            transform-origin: 100% 0 0;
         }
         .menu#name{
-            /*단락의 표시 유무, js를 사용하여 수정해줄 예정*/
             visibility: visible;
 
             position: relative;
@@ -92,7 +93,7 @@
 			/*float: right;*/
 		}
     </style>
-    <!--자바스크립트 추가 예정(메뉴 바 상호작용, 네비게이션 바 이동, 상단 바 노출(시간적 여유가 될 때)-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
     <a name="aa"></a>
@@ -150,6 +151,23 @@
         </section>
 
     </div>
-    
+    <!--자바스크립트 추가 예정(메뉴 바 상호작용, 네비게이션 바 이동, 상단 바 노출(시간적 여유가 될 때)-->
+    <script type="text/javascript">
+        var menu_box = $(".menu#box");
+        var menu_name = $(".menu#name");
+        var menu_nav = $(".menu#nav");
+
+        menu_box.hover(() => {
+            menu_box.css("height", "600px");
+
+            menu_name.css("visibility", "hidden");
+            menu_nav.css("visibility", "visible");
+        }, () => {
+            menu_box.css("height", "100px");
+
+            menu_name.css("visibility", "visible");
+            menu_nav.css("visibility", "hidden");
+        })
+    </script>
 </body>
 </html>
