@@ -16,51 +16,72 @@
     <!--아래 css의 크기들은 임의적인 것임. 더 괜찮다 싶은 크기가 있으면 수정해주길 바람-->
     <style>
         .menu{
-            position:fixed;
         }
         .menu#box{
+            position:fixed;
             top: 20px;
-            left: 30px;
+            left: 25px;
+            
+            border: 5px solid black;
 
+            display: flex;
             width: 170px;
             height: 100px;
+            flex-direction: column;
 
-            background-color: darkgrey;
+            background-color: white;
 
             /*transition*/
-            -webkit-transition: all 400ms cubic-bezier(0.650, 0, 0.365, 0.820); /* older webkit */
-            -webkit-transition: all 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-            -moz-transition: all 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-                -o-transition: all 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-                    transition: all 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820); /* custom */
+            -webkit-transition: height 400ms cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
 
-            -webkit-transition-timing-function: cubic-bezier(0.650, 0, 0.365, 0.820); /* older webkit */
-            -webkit-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-            -moz-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-                -o-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820); 
-                    transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820); /* custom */
+            -webkit-transition-timing-function: cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
         }
         .menu#name{
             visibility: visible;
 
             position: relative;
-            top: 25px;
-            left: 40px;
+            margin-top: 20px;
+            margin-left: 25px;
 
-            display: block;
-            width: 120px;
-            height: 50px;
+            width: 130px;
+            height: 60px;
+            flex-shrink: 0;
 
-            background-color: aqua;
+            background-image: url("오픈소스.png");
+            background-size: cover;
 
             text-align: center;
-
-            transition: visibility, ;
         }
         .menu#nav{
             visibility: hidden;
 
-            display: block;
+            margin-top: 35px;
+            margin-left: 10px;
+            margin-right: 10px;
+            
+            flex-shrink: 0;
+
+            border: 1px solid black;
+
+            background-color: white;
+            
+            -webkit-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms;
+            -moz-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
+
+            -webkit-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+            -moz-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
         }
 
         main{
@@ -81,7 +102,7 @@
             padding: 10px;
         }
 
-        .nav{
+        .RMC#box{
             position: fixed;
             top: 35%;
             right: 50px;
@@ -116,8 +137,6 @@
 
             <!--메뉴 박스에 들어갈 로고-->
             <div class="menu" id="name">
-                opensource<br>
-                아이콘 들어감
             </div>
 
             <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
@@ -153,8 +172,8 @@
     <!--독립된 개체들-->
     <div class="independent">
         <!--네비게이션 바--><!--구조 추가 예정(메뉴 버튼 등)-->
-        <section id="navgationBox">
-            <div class="nav" id="nav_box">
+        <section id="remoteController">
+            <div class="RMC" id="box">
             	<div>리모컨</div> 
 				<hr width ="100px" color="black" size=2/>
 				<div><a href=".wrap">링크 이동 연습</a></div> 
@@ -172,13 +191,9 @@
 
         menu_box.hover(() => {
             menu_box.css("height", "600px");
-
-            menu_name.css("visibility", "hidden");
             menu_nav.css("visibility", "visible");
         }, () => {
             menu_box.css("height", "100px");
-
-            menu_name.css("visibility", "visible");
             menu_nav.css("visibility", "hidden");
         })
     </script>
