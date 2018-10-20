@@ -191,10 +191,13 @@
 
         menu_box.hover(() => {
             menu_box.css("height", "600px");
-            menu_nav.css("visibility", "visible");
+            menu_box.on("transitionend", function() {
+                menu_nav.css("visibility", "visible");
+            });
         }, () => {
-            menu_box.css("height", "100px");
+            menu_box.off("transitionend");
             menu_nav.css("visibility", "hidden");
+            menu_box.css("height", "100px");
         })
     </script>
 </body>
