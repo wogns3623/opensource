@@ -2,9 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--아래 코드에서 이해 안되는 부분 물어보면 알려드리겠습니다.-->
 
@@ -15,8 +13,10 @@
     
     <!--아래 css의 크기들은 임의적인 것임. 더 괜찮다 싶은 크기가 있으면 수정해주길 바람-->
     <style>
-        .menu{
+        body{
+            margin: 0px;
         }
+
         .menu#box{
             position:fixed;
             top: 20px;
@@ -85,21 +85,34 @@
         }
 
         main{
-            margin-top: 20px;
+            margin-right: 25px;
             display: flex;
         }
         .layout_margin#doc_left{
-            width: 200px;
+            width: 220px;
             flex-shrink: 0;
         }
         article{
+            margin-top: 20px;
             border: 1px solid black;
 
-            display: block;
+            display: flex;
             width: 100%;
-            height: 1000px;
+            flex-direction: column;
+        }
+
+        .doc_title{
+            border: 1px solid black;
+
+            flex-shrink: 0;
 
             padding: 10px;
+
+            font-size: 30px;
+        }
+        .contents{
+            margin-top: 5px;
+            border: 1px solid black;
         }
 
         .RMC#box{
@@ -162,22 +175,27 @@
                 </ol>
             </div>
         </div>
-        <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
     </header>
 
     <main>
         <!--문서 왼쪽 메뉴 부분을 위한 여백 지정-->
         <div class="layout_margin" id="doc_left"></div>
-
+        
         <!--문서 내용-->
         <article>
-            contents
-            <ol>
-                <li style="height: 250px;"><a href="#1">a</a></li>
-            	<li style="height: 250px;"><a href="#2">b</a></li>
-            	<li style="height: 250px;"><a href="#3">c</a></li>
-            	<li style="height: 250px;"><a href="#4">d</a></li>
-            </ol>
+            <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
+            <!--문서 상단에 위치할 문서 제목-->
+            <div class="doc_title">
+                문서 제목
+            </div>
+            <div class="contents">
+                <ol>
+                    <li style="height: 250px;"><a href="#1">a</a></li>
+                    <li style="height: 250px;"><a href="#2">b</a></li>
+                    <li style="height: 250px;"><a href="#3">c</a></li>
+                    <li style="height: 250px;"><a href="#4">d</a></li>
+                </ol>
+            </div>
         </article>
     </main>
     
