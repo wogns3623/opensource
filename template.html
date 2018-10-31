@@ -19,7 +19,7 @@
 
         .menu#box{
             position:fixed;
-            top: 0px;
+            top: -5px;
             left: -5px;
             
             border: 5px solid black;
@@ -55,7 +55,7 @@
             height: 55px;
             flex-shrink: 0;
 
-            background-image: url("오픈소스.png");
+            background-image: url("icon/오픈소스.png");
             background-size: cover;
 
             text-align: center;
@@ -85,6 +85,7 @@
         }
 
         main{
+            top: -5px;
             display: flex;
 
             height: 100%;
@@ -106,6 +107,8 @@
         }
 
         .doc_title#box{
+            position: relative;
+            top: -5px;
             border: 5px solid black;
 
             display: flex;
@@ -269,21 +272,14 @@
                 <hr width ="100px" color="black" size=3 style="margin: 0px;"/>
                 
                 <div class="RMC" id="link_box">
-                    <a href="#before"><img src="icon/left.png"></a>
-                    <div class="RMC" id="mid" class="icon">
-                        <a href="#top"><img src="icon/up.png"></a>
-                        <a href="home"><img src="icon/home.png"></a>
-                        <a href="#bottom"><img src="icon/down.png"></a>
+                    <a href="#before"><img src="icon/left.png" class="icon"></a>
+                    <div class="RMC" id="mid">
+                        <a href="#top"><img src="icon/up.png" class="icon"></a>
+                        <a href="home"><img src="icon/home.png" class="icon"></a>
+                        <a href="#bottom"><img src="icon/down.png" class="icon"></a>
                     </div>
-                    <a href="#next"><img src="icon/right.png"></a>
+                    <a href="#next"><img src="icon/right.png" class="icon"></a>
                 </div>
-                <!--
-				<div>
-                    
-                    <a href="#bb"><img src="down-arrow.png"></a>
-                    <a href="1.html"><img src="list.png"></a>
-                </div>
-                -->
         	</div>
         </section>
 
