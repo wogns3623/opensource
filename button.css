@@ -1,0 +1,148 @@
+.hover1{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.hover1:before, .hover1:after,
+.hover1__label:before, .hover1__label:after{
+  content: "";     
+  position: absolute;   
+  transition: transform .2s ease-out;
+}
+
+.hover1:before, .hover1:after{
+  width: 100%;
+  height: 2px;
+  left: 0;
+}
+
+.hover1:before{
+  top: 0;
+  transform: translate3d(-105%, 0, 0);
+}
+
+.hover1:after{
+  bottom: 0;
+  transform: translate3d(105%, 0, 0);
+}
+
+.hover1__label:before,
+.hover1__label:after{
+  width: 2px;
+  height: 100%;
+  top: 0;
+}
+
+.hover1__label:before{
+  left: 0;
+  transform: translate3d(0%, -100%, 0);
+}
+
+.hover1__label:after{
+  right: 0;
+  transform: translate3d(0%, 100%, 0);
+}
+
+.hover1:hover:before, .hover1:focus:before,
+.hover1:hover:after, .hover1:focus:after,
+.hover1:hover .hover1__label:before, .hover1:focus .hover1__label:before,
+.hover1:hover .hover1__label:after, .hover1:focus .hover1__label:after{
+  transform: translate3d(0, 0, 0);
+}
+
+.hover1:focus {
+  outline: none;
+}
+
+.hover1:before, .hover1:after,
+.hover1__label:before, .hover1__label:after {
+  background-color: white;
+}
+
+.hover1:hover, .hover1:focus {
+  color: white;
+  border-width: 60px;
+}
+
+.hover1 {
+  padding: .5rem 1.5rem;
+}
+
+/*
+* demo
+*/
+
+@media screen and (min-width: 769px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px){
+
+  html{
+    font-size: 56%;
+  }
+}
+
+@media screen and (max-width: 640px){
+
+  html{
+    font-size: 50%;
+  }
+}
+
+body{
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+/*
+* left-textbox, right-textbox
+*/
+
+.left-textbox, .right-textbox{
+  list-style: none;
+  padding: 0;
+  margin: 0;  
+}
+
+.left-textbox__item, .right-textbox__item{
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.left-textbox__link, .right-textbox__link{
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1201px){
+
+  .main-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .section{
+    width: 33.33333%;
+  }
+}
+
+@media screen and (max-width: 300px){
+
+  .left-textbox{
+    flex-direction: column;
+  }
+}
