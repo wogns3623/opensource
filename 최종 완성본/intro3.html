@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>template</title>
+
+    <!--아래 코드에서 이해 안되는 부분 물어보면 알려드리겠습니다.-->
+
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <!--나중에 자바스크립트까지 작성이 완료되면 파일을 분리할 예정임
+    지금은 작업의 효율성을 위해 분리하지 않음-->
+    
+    <!--아래 css의 크기들은 임의적인 것임. 더 괜찮다 싶은 크기가 있으면 수정해주길 바람-->
+    <style>
+        body{
+            margin: 0px;
+        }
+
+        .menu#box{
+            position:fixed;
+            top: -5px;
+            left: -5px;
+            
+            border: 5px solid black;
+
+            display: flex;
+            width: 170px;
+            height: 100px;
+            flex-direction: column;
+
+            background-color: white;
+
+            /*transition*/
+            -webkit-transition: height 400ms cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
+
+            -webkit-transition-timing-function: cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
+        }
+        .menu#name{
+            visibility: visible;
+
+            position: relative;
+            margin-top: 20px;
+            margin-left: 20px;
+
+            width: 130px;
+            height: 55px;
+            flex-shrink: 0;
+
+            background-image: url("icon/오픈소스.png");
+            background-size: cover;
+
+            text-align: center;
+        }
+        .menu#nav{
+            visibility: hidden;
+
+            margin-top: 35px;
+            margin-left: 10px;
+            margin-right: 10px;
+            
+            flex-shrink: 0;
+
+            border: 1px solid black;
+
+            background-color: white;
+            
+            -webkit-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms;
+            -moz-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
+
+            -webkit-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+            -moz-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
+        }
+
+        main{
+            top: -5px;
+            display: flex;
+
+            background-color: #f9f9f9;
+
+            height: 100%;
+        }
+        .layout_margin#doc_left{
+            width: 170px;
+            flex-shrink: 0;
+        }
+        .layout_margin#doc_right{
+            width: 150px;
+            flex-shrink: 0;
+        }
+        article{
+            border: 0px solid black;
+
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .doc_title#box{
+            position: relative;
+            top: -5px;
+            border: 5px solid black;
+
+            display: flex;
+            width: 100%;
+            height: 100px;
+            flex-shrink: 0;
+            flex-direction: column;
+        }
+        .doc_title#text{
+            display: inline;
+            font-size: 30px;
+
+            flex-shrink: 0;
+        }
+        .layout_margin#title_top{
+            height: 50%;
+        }
+        .layout_margin#title_bottom{
+            height: 50%;
+        }
+
+        .contents{
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+
+        .RMC#box{
+            position: fixed;
+            top: 35%;
+            right: 10px;
+            margin-right: 0px;
+            background-color:#fff; /* 목차 내부 색상 */
+			border:4px solid #000; /* 테두리 색깔 및 두께 */
+			text-align:center; 
+            width: 100px;
+			border-radius: 8px; 
+			-webkit-border-radius: 8px; 
+			float: right;
+			cursor: move;
+
+            display: block;
+        }
+        .RMC#name{
+            margin: 3px;
+        }
+        .RMC#link_box{
+
+            margin: 3px;
+            margin-bottom: 0px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .RMC#mid{
+
+            display: flex;
+            flex-direction: column;
+
+        }
+        .icon{
+
+			width: 30px;
+            height: 30px;
+			/*float: right;*/
+		}
+
+        a{
+            color: #000000;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #000000;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <a name="top"></a>
+    <header>
+        <!--문서의 왼쪽 상단에 위치할 메뉴 박스-->
+        <div class="menu" id="box" >
+
+            <!--메뉴 박스에 들어갈 로고-->
+            <div class="menu" id="name">
+            </div>
+
+            <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
+            <div class="menu" id="nav">
+                <h4><a href="intro1.html">1.오픈소스 소개</a></h4>
+                <ul>
+                    <li><a href="intro1.html">1.1 오픈소스</a></li>
+                    <li><a href="intro2.html">1.2 자유소프트웨어</a></li>
+                    <li><a href="intro3.html">1.3 오픈소스 라이선스</a></li>
+                    <li><a href="intro4.html">1.4 오픈소스 프로젝트</a></li>
+                    <li><a href="intro5.html">1.5 왜 오픈소스를 사용하는가?</a></li>
+                </ul>
+
+                <h4><a href="history1.html">2. 오픈소스의 역사</h4>
+                <h4><a href="people.html">3. 오픈소스 관련 인물들</a></h4>
+                <h4><a href="오픈소스의 소개 정리.html">4. 더 알아보기</a></h4>
+                <ul>
+                    <li><a href="오픈소스의 소개 정리.html">4.1 Revolution OS (2001)</a></li>
+                </ul>
+                <h4><a href="오픈소스의 소개 정리.html">5. 참고 문헌 및 외부링크</a></h4>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--문서 왼쪽 메뉴 부분을 위한 여백 지정-->
+        <div class="layout_margin" id="doc_left"></div>
+        
+        <!--문서 내용-->
+        <article>
+            <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
+            <!--문서 상단에 위치할 문서 제목-->
+            <div class="doc_title" id="box">
+                <div class="layout_margin" id="title_top"></div>
+                <div class="doc_title" id="text">
+                    오픈소스 소개
+                </div>
+                <div class="layout_margin" id="title_bottom"></div>
+            </div>
+
+            <div class="contents_wrap">
+                <div class="contents">
+                    <h2>3.오픈소스 라이선스</h2>
+                    <h3>1)카피레프트(Copyleft)</h3>
+                    <p>
+                        카피레프트는 카피라이트(Copyright)의 개념을 전제로 한다. 카피라이트는 원작자가 복사물 혹은 행위에 대한 제한적인 독점권을 가짐을 의미한다. 카피라이트는 작업하는 즉시 부여되며 어떠한 등록도 요구되지 않는다. 자연스럽게 모든 권리가 원작자에게 주어지는 것이다. 그 말은 즉, 아무도 원작자의 허가없이 다시 재배포하거나 수정할 수 없음을 말한다. 그리고 사용이 가능하다는 원작자의 허가를 라이선스라고 하며 어떤 명확한 조건이 붙어서 나온다. 
+                        <br><br>
+                        카피레프트는 원작자의 소프트웨어 또는 문서를 수정할 수 있고 다시 배포할 수 있는 권한을 말한다. 카피레프트가 도입된 배경은 다음과 같다. 당시 독점소프트웨어는 '카피라이트'를 적용하여 누구도 코드를 변형할 수 없음을 명시해 두었다. 자유소프트웨어 재단의 리처드 스톨만은 소스코드가 공개된 소프트웨어를 카피라이트를 적용하지 않고 <a href="#1"><font size="3px">[1]</font>퍼블릭 도메인</a>에 둔다면, 다른 누군가가 약간의 수정을 한 뒤에 그것을 독점 소프트웨어로 만들 수 있을 것이라 보았다. 이는 자유소프트웨어가 지향하는 바와는 전혀 맞지 않는 것이었고, 리처드 스톨만은 '카피라이트'와는 다른 ‘카피레프트'를 생각해낸다. 리처드 스톨만이 말하는 카피레프트는 다음과 같다.
+                        <br><br>
+                        '어떤 소프트웨어의 저작권이 보호받고, 저작자는 재배포를 허용하며, 수정권한을 주지만 재배포할 시에는 똑같이 카피레프트를 적용해야 한다.'
+                        <br><br>
+                        앞서 말했듯이 카피레프트는 카피라이트의 개념을 전제로 한다. 흔히들 카피레프트가 저작권을 반대한다고 볼 수 있으나 이는 잘못된 해석이다. 쉽게 말해서, 카피레프트는 저작권(카피라이트)을 다른 사람에게도 부여하여 수정과 재 배포 또한 자유롭게 할 수 있음을 의미한다고 보면 된다.
+                    </p>
+                    <h3>2)오픈소스 라이선스</h3>
+                    <p>
+                        오픈소스 소프트웨어 또한 오픈소스 소프트웨어를 사용 가능하다는 라이선스가 존재한다. OSI의 정의에 따른 모든 오픈소스 라이선스는 소스코드의 배포를 허용하며 오픈소스 소프트웨어를 받은 누구라도 코드를 보고 수정할 권리가 주어진다.
+                        <h4>(1)오픈소스 라이선스 종류</h4>
+                        ①   GNU 일반 공중 사용 허가서(GNU GPL 혹은 GPL)
+                        <br>
+                        GPL은 가장 엄격한 제약이 있는 라이선스로 카피레프트의 성격이 강하다. GPL 라이선스를 가진 프로그램을 사용하여 새로운 프로그램을 만들게 되면 파생된 프로그램 역시 같은 카피레프트를 가져야 한다. 이러한 철학에서 GPL은 컴퓨터 프로그램을 이용하는 사람에게 자유 소프트웨어의 권한을 주고 카피레프트를 사용함으로써 그 자유를 보전해주며 이전 작업 내용을 수정하거나 다른 내용을 추가하는 것도 허용한다.
+                        <br>
+                        ②   LGPL 라이선스
+                        <br>
+                        기존의 GPL의 높은 제약을 완화하기 위해 만들어졌으며 소프트웨어 라이브러리를 염두 한다. 만약 LGPL로 작성된 소스코드를 라이브러리로만 사용하는 경우엔 소스코드를 공개하지 않아도 되며 그 이외 사항은 GPL과 동일하다.
+                        <br>
+                        ③   아파치(Apache) 라이선스
+                        <br>
+                        아파치 라이선스는 아파치 소프트웨어 재단에서 만든 소프트웨어 라이선스이다. 아파치 라이선스 2.0은 GPL과는 달리 소스 코드 공개의 의무가 존재하지 않고, 2차 라이선스와 변형물의 특허 출원이 가능하다. 라이선스 적용 시 아파치 재단의 이름과 라이선스의 내용을 명시해야 하며, 아파치 라이선스 2.0이 적용된 소스 코드를 수정했을 경우 그 사실을 밝혀야 한다.
+                        <br>
+                        ④   모질라(Mozilla) 퍼블릭 라이선스(MPL)
+                        <br>
+                        모질라 어플리케이션 스위트, 모질라 파이어 폭스 등 모질라 소프트웨어에 적용된다.
+                        <br>
+                        ⑤   BSD license: 버클리의 캘리포니아 대학에서 배포하는 공개 소프트웨어의 라이선스. GPL보다 훨씬 개방적인 4개항의 간단한 문구로 되어 있으며 BSD의 운영체제인 FreeBSD, Django 또한 BSD 라이선스를 따르고 있다.
+                        <br>
+                        ⑥   다양한 오픈소스 라이선스들 <br>
+                        •   Eclipse - 이클립스 공용 허가서(Eclipse Public License, EPL). <br>
+                        •   OpenJDK - GPL v2 (GNU GPL 버전 2) <br>
+                        •   PostgreSQL - PostgreSQL License <br>
+                        •   Docker - Apache License 2.0
+                        <br>
+                        <h4>(2)오픈소스 라이선스 비교</h4>
+                        <img src="icon/라이선스.png">
+                        <h4>(3)가장 인기있는 오픈소스 라이선스</h4>
+                        <img src="icon/라이선스3.png">
+                        <br><br>
+                        2017년 가장 많이 사용하는 오픈소스 라이선스의 순위를 매긴 것이다. BSD라이선스를 기초로 MIT 대학에서 만든 라이선스인 MIT가 1등을 차지하였다. MIT 라이선스를 따르는 소프트웨어를 개조한 소프트웨어를 반드시 오픈 소스로 배포해야 한다는 규정이 없으며 GNU 일반 공중 라이선스의 엄격한 제약 피하려는 사용자들에게 인기가 있다고 한다.
+                    </p>
+                
+                    <hr border='6px;' color='#000'>
+                    <h5>각주</h5>
+                    <h6><ul>
+                        <li><a name="1">[1]</a>퍼블릭 도메인은 저작권(카피 라이트)이 소멸되었거나 저작자가 저작권을 포기한 저작물을 의미한다.</li>
+                    </ul></h6>
+                </div>
+            </div>
+        </article>
+
+        <div class="layout_margin" id="doc_right"></div>
+        
+    </main>
+    
+    <a name="bottom"></a>
+
+    <!--독립된 개체들-->
+    <div class="independent">
+        <!--네비게이션 바--><!--구조 추가 예정(메뉴 버튼 등)-->
+        <section id="remoteController">
+            <div class="RMC" id="box">
+                <div class="RMC" id="name">리모컨</div> 
+                
+                <hr width ="100px" color="black" size=3 style="margin: 0px;"/>
+                
+                <div class="RMC" id="link_box">
+                    <a href="intro2.html"><img src="icon/left.png" class="icon"></a>
+                    <div class="RMC" id="mid">
+                        <a href="#top"><img src="icon/up.png" class="icon"></a>
+                        <a href="home"><img src="icon/home.png" class="icon"></a>
+                        <a href="#bottom"><img src="icon/down.png" class="icon"></a>
+                    </div>
+                    <a href="intro4.html"><img src="icon/right.png" class="icon"></a>
+                </div>
+        	</div>
+        </section>
+
+    </div>
+    <!--자바스크립트 추가 예정(메뉴 바 상호작용, 네비게이션 바 이동, 상단 바 노출(시간적 여유가 될 때)-->
+    <script type="text/javascript">
+        var menu_box = $(".menu#box");
+        var menu_name = $(".menu#name");
+        var menu_nav = $(".menu#nav");
+
+        menu_box.hover(() => {
+            menu_box.css("height", "100%");
+            menu_box.on("transitionend", function() {
+                menu_nav.css("visibility", "visible");
+            });
+        }, () => {
+            menu_box.off("transitionend");
+            menu_nav.css("visibility", "hidden");
+            menu_box.css("height", "100px");
+        })
+    </script>
+</body>
+</html>
