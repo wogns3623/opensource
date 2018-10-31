@@ -91,6 +91,8 @@
             background-color: #f9f9f9;
 
             height: 100%;
+
+            background-color: #f9f9f9;
         }
         .layout_margin#doc_left{
             width: 170px;
@@ -202,21 +204,13 @@
             <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
             <div class="menu" id="nav">
                 <h4><a href="intro1.html">1.오픈소스 소개</a></h4>
-                <ul>
-                    <li><a href="intro1.html">1.1 오픈소스</a></li>
-                    <li><a href="intro2.html">1.2 자유소프트웨어</a></li>
-                    <li><a href="intro3.html">1.3 오픈소스 라이선스</a></li>
-                    <li><a href="intro4.html">1.4 오픈소스 프로젝트</a></li>
-                    <li><a href="intro5.html">1.5 왜 오픈소스를 사용하는가?</a></li>
-                </ul>
-
                 <h4><a href="history1.html">2. 오픈소스의 역사</h4>
                 <h4><a href="people.html">3. 오픈소스 관련 인물들</a></h4>
-                <h4><a href="오픈소스의 소개 정리.html">4. 더 알아보기</a></h4>
+                <h4><a href="more.html">4. 더 알아보기</a></h4>
                 <ul>
-                    <li><a href="오픈소스의 소개 정리.html">4.1 Revolution OS (2001)</a></li>
+                    <li><a href="more.html">4.1 Revolution OS (2001)</a></li>
                 </ul>
-                <h4><a href="오픈소스의 소개 정리.html">5. 참고 문헌 및 외부링크</a></h4>
+                <h4><a href="link.html">5. 참고 문헌 및 외부링크</a></h4>
             </div>
         </div>
     </header>
@@ -232,45 +226,20 @@
             <div class="doc_title" id="box">
                 <div class="layout_margin" id="title_top"></div>
                 <div class="doc_title" id="text">
-                    오픈소스 소개
+                    더 알아보기
                 </div>
                 <div class="layout_margin" id="title_bottom"></div>
             </div>
 
             <div class="contents_wrap">
                 <div class="contents">
-                        <h2>2.자유 소프트웨어</h2>
-                        <h3>1)자유소프트웨어란?</h3>
-                        <p>
-                             자유소프트웨어는 사용자의 자유와 공동체를 보장하는 소프트웨어를 말한다. 간단히 말하자면, 사용자가 소프트웨어를 작동시키고, 복사하고, 배포하고, 변형시키고, 발전시킬 수 있는 자유를 가진다는 것을 의미한다. 자유소프트웨어의 정의에 대해 설명하고 있는 GNU Operating System홈페이지에 따르면
-                            <table border="1">
-                                <tr>
-                                    <td>Thus, “free software” is a matter of liberty, not price. To understand the concept, you should think of “free” as in “free speech,” not as in “free beer”.</td>
-                                </tr>
-                                <tr>
-                                    <td>(그러므로, '프리 소프트웨어'는 자유의 문제이지 가격의 문제는 아닙니다. 이 개념을 이해하려면 당신은 '자유'를 '공짜맥주'가 아닌, '언론의 자유'와 같은 예를 생각해보면 됩니다.)</td>
-                                </tr>
-                            </table>
-                            <br>
-                            라고 설명을 한다. 자유소프트웨어 즉, 영어로 '프리 소프트웨어'에서의 'Free'가 소스코드에서의 자유를 의미하지, 공짜로 배포하는 '프리웨어'를 설명하지 않는다고 정의한다. 그럼 자유소프트웨어에서 정의하는 자유란 무엇인가? 다음의 내용은 자유소프트웨어에서 말하는 4가지 종류의 자유이다.
-                            <h4>(1)자유소프트웨어의 4가지 '자유'</h4>
-                            만약 프로그램의 사용자가 다음의 4가지 필수 자유를 가지면, 그 프로그램은 자유 소프트웨어이다.<br>
-                            자유 0) 프로그램을 어떠한 목적을 위해서도 실행할 수 있는 자유.<br>
-                            자유 1) 프로그램의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경시킬 수 있는 자유. 이러한 자유를 위해서는 소스 코드에 대한 접근이 선행되어야 한다.<br>
-                            자유 2) 이웃을 돕기 위해서 프로그램을 복제하고 배포할 수 있는 자유.<br>
-                            자유 3) 프로그램을 향상시키고 이를 공동체 전체의 이익을 위해서 다시 환원시킬 수 있는 자유. 이러한 자유를 위해서는 소스 코드에 대한 접근이 선행되어야 한다.
-                            <h4>(2) 자유소프트웨어와 오픈소스의 차이점</h4>
-                            자유소프트웨어와 오픈소스에 대해 간략히 알아보았다. 하지만, 이 둘의 차이점은 아직까지 애매모호할 수 있다. 오픈소스 공식 홈페이지에 이 주제와 관련된 글이 실릴 정도로 많은 사람들이 오픈소스와 자유소프트웨어를 잘 구분하지 못한다.
-                            <br><br>
-                            <img src="icon/open_source1.png">
-                            <br><br>
-                            <a href="#1"><font size="3px">[1]</font></a> 관련 글에 따르면, 자유소프트웨어와 오픈소스가 같은 라이선스 내용을 언급하고 있어도 용어에 내포된 가치는 다르다는 입장이다. 자유소프트웨어의 개념은 1980년대부터 리처드 스톨만에 의해 시작되었으며 소프트웨어를 사용하는 사용자들이 소프트웨어를 가지고 무슨 일을 할 수 있는지에 집중을 한다. 간략히 말하자면, 사용자들은 소프트웨어를 변형하고 복사하고 분배하고 실행할 자유가 있어야 한다고 본다. 하지만, 오픈소스의 개념은 1997년도부터 시작되었으며 라이선스에 의한 실용적인 결과에 집중을 한다. 자유소프트웨어 운동을 이끌었던 리처드 스톨만 역시, 오픈소스는 소스코드 형태를 중요시하는데 반해, 자유소프트웨어는 자유를 중시하는 사회적인 운동이라고 말한 바가 있다.
-                        </p>
-                        <hr border='6px;' color='#000'>
-                        <h5>각주</h5>
-                        <h6><ul>
-                            <li><a name="1">[1]</a>‘What’s the difference between open source software and free software?’ <a href="https://opensource.com/article/17/11/open-source-or-free-software">https://opensource.com/article/17/11/open-source-or-free-software</a></li>
-                        </ul></h6>
+                    <h2><a href="https://youtu.be/4ZHloJVhcRY">Revolution OS (2001)</a></h2>
+                    <img src="icon/레볼루션.png">
+                    <br><br>
+                    「I was at Agenda 2000 … and bumped in to him in an, in an elevator... in an elevator And uh, I looked at his badge and said, "Oh, I see you work for Microsoft." And he looked back to me and said, "Oh, yeah and what do you do?" And I thought he seemed just a sort of a tad dismissive I mean, here's the archetypal, you know, guy in a suit looking at a scruffy hacker And so I gave him the thousand yard stare and said, <br>
+                    "I'm your worst nightmare." – Eric Raymond on Revolution OS -」
+                    <br><br>
+                    「REVOLUTION OS」는 「Linux」와「오픈 소스 운동」을 통해 마이크로소프트에 대항하는 해커들의 인사이드 스토리이다. 20년간 컴퓨터 해커들이 마이크로소프트의 독점에 대항해, 소프트웨어의 발전과 소유권의 있는 방법을 바꾸는 기술 혁명을 행해 왔다. 이 혁명의 집대성이「오픈 소스 운동」이며, 「Linux 운영체제」이다. 다큐멘터리 필름「REVOLUTION OS」는 오픈 소스 운동을 이끌고 온 주역들에 대한 인터뷰를 통해 그 기원을 밝히고 주류로 성장해 가는 역사를 재조명한 작품이다. 또한, 「REVOLUTION OS」는 Linux를 개발한 핀란드 엔지니어 ‘리눅스 토발즈’와 자유 소프트웨어 운동의 ‘리차드 스톨만’, OSI 창설자인 ‘에릭 레이몬드’ 등이 Linux의 탄생으로부터 곧 도달할 때까지를 중요한 인터뷰를 다수 수록하고 있다. 영상은 시네마스코프 35 mm필름을 사용해 실리콘밸리에서 촬영하였다.
                 </div>
             </div>
         </article>
@@ -291,13 +260,13 @@
                 <hr width ="100px" color="black" size=3 style="margin: 0px;"/>
                 
                 <div class="RMC" id="link_box">
-                    <a href="intro1.html"><img src="icon/left.png" class="icon"></a>
+                    <a href="people.html"><img src="icon/left.png" class="icon"></a>
                     <div class="RMC" id="mid">
                         <a href="#top"><img src="icon/up.png" class="icon"></a>
                         <a href="index.html"><img src="icon/home.png" class="icon"></a>
                         <a href="#bottom"><img src="icon/down.png" class="icon"></a>
                     </div>
-                    <a href="intro3.html"><img src="icon/right.png" class="icon"></a>
+                    <a href="link.html"><img src="icon/right.png" class="icon"></a>
                 </div>
         	</div>
         </section>

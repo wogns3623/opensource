@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>template</title>
+
+    <!--아래 코드에서 이해 안되는 부분 물어보면 알려드리겠습니다.-->
+
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <!--나중에 자바스크립트까지 작성이 완료되면 파일을 분리할 예정임
+    지금은 작업의 효율성을 위해 분리하지 않음-->
+    
+    <!--아래 css의 크기들은 임의적인 것임. 더 괜찮다 싶은 크기가 있으면 수정해주길 바람-->
+    <style>
+        body{
+            margin: 0px;
+        }
+
+        .menu#box{
+            position:fixed;
+            top: -5px;
+            left: -5px;
+            
+            border: 5px solid black;
+
+            display: flex;
+            width: 170px;
+            height: 100px;
+            flex-direction: column;
+
+            background-color: white;
+
+            /*transition*/
+            -webkit-transition: height 400ms cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition: height 400ms cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
+
+            -webkit-transition-timing-function: cubic-bezier(0.650, 0, 0.365, 0.820) 200ms; /* older webkit */
+            -webkit-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; 
+            -moz-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                -o-transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms;
+                    transition-timing-function: cubic-bezier(0.650, -0.250, 0.365, 0.820) 200ms; /* custom */
+        }
+        .menu#name{
+            visibility: visible;
+
+            position: relative;
+            margin-top: 20px;
+            margin-left: 20px;
+
+            width: 130px;
+            height: 55px;
+            flex-shrink: 0;
+
+            background-image: url("icon/오픈소스.png");
+            background-size: cover;
+
+            text-align: center;
+        }
+        .menu#nav{
+            visibility: hidden;
+
+            margin-top: 35px;
+            margin-left: 10px;
+            margin-right: 10px;
+            
+            flex-shrink: 0;
+
+            border: 1px solid black;
+
+            background-color: white;
+            
+            -webkit-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms;
+            -moz-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition: visibility 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
+
+            -webkit-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+            -moz-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                -o-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; 
+                    transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750) 100ms; /* linear */
+        }
+
+        main{
+            top: -5px;
+            display: flex;
+
+            background-color: #f9f9f9;
+
+            height: 100%;
+
+            background-color: #f9f9f9;
+        }
+        .layout_margin#doc_left{
+            width: 170px;
+            flex-shrink: 0;
+        }
+        .layout_margin#doc_right{
+            width: 150px;
+            flex-shrink: 0;
+        }
+        article{
+            border: 0px solid black;
+
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .doc_title#box{
+            position: relative;
+            top: -5px;
+            border: 5px solid black;
+
+            display: flex;
+            width: 100%;
+            height: 100px;
+            flex-shrink: 0;
+            flex-direction: column;
+        }
+        .doc_title#text{
+            display: inline;
+            font-size: 30px;
+
+            flex-shrink: 0;
+        }
+        .layout_margin#title_top{
+            height: 50%;
+        }
+        .layout_margin#title_bottom{
+            height: 50%;
+        }
+
+        .contents{
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+
+        .RMC#box{
+            position: fixed;
+            top: 35%;
+            right: 10px;
+            margin-right: 0px;
+            background-color:#fff; /* 목차 내부 색상 */
+			border:4px solid #000; /* 테두리 색깔 및 두께 */
+			text-align:center; 
+            width: 100px;
+			border-radius: 8px; 
+			-webkit-border-radius: 8px; 
+			float: right;
+			cursor: move;
+
+            display: block;
+        }
+        .RMC#name{
+            margin: 3px;
+        }
+        .RMC#link_box{
+
+            margin: 3px;
+            margin-bottom: 0px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .RMC#mid{
+
+            display: flex;
+            flex-direction: column;
+
+        }
+        .icon{
+
+			width: 30px;
+            height: 30px;
+			/*float: right;*/
+		}
+
+        a{
+            color: #000000;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #000000;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <a name="top"></a>
+    <header>
+        <!--문서의 왼쪽 상단에 위치할 메뉴 박스-->
+        <div class="menu" id="box" >
+
+            <!--메뉴 박스에 들어갈 로고-->
+            <div class="menu" id="name">
+            </div>
+
+            <!--메뉴 박스에서 펼쳐질 메뉴 내용들-->
+            <div class="menu" id="nav">
+                <h4><a href="intro1.html">1.오픈소스 소개</a></h4>
+                <h4><a href="history1.html">2. 오픈소스의 역사</h4>
+                <h4><a href="people.html">3. 오픈소스 관련 인물들</a></h4>
+                <ul>
+                    <li><a href="#people1">3.1 리누스 토발즈</a></li>
+                    <li><a href="#people2">3.2 리차드 스톨만</a></li>
+                    <li><a href="#people3">3.3 에릭 레이먼드</a></li>
+                    <li><a href="#people4">2.4 이언 머독</a></li>
+                </ul>
+                <h4><a href="more.html">4. 더 알아보기</a></h4>
+                <h4><a href="link.html">5. 참고 문헌 및 외부링크</a></h4>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--문서 왼쪽 메뉴 부분을 위한 여백 지정-->
+        <div class="layout_margin" id="doc_left"></div>
+        
+        <!--문서 내용-->
+        <article>
+            <!--시간적 여유가 되면 상단 바 추가 예정(커서와 상호작용하여 상단에서 내려옴)-->
+            <!--문서 상단에 위치할 문서 제목-->
+            <div class="doc_title" id="box">
+                <div class="layout_margin" id="title_top"></div>
+                <div class="doc_title" id="text">
+                    오픈소스 관련 인물들
+                </div>
+                <div class="layout_margin" id="title_bottom"></div>
+            </div>
+
+            <div class="contents_wrap">
+                <div class="contents">
+                    <a name="people1"></a>
+                    <h2>1.리누스 토발즈(Linus Benedict Torvalds)</h2>
+                    <img src="icon/리누스토발즈.png">
+                    <p>
+                        <h3>1)업적</h3>
+                        리누스 토발즈는 리눅스 이외에도 많은 업적을 남겼는데, 대표적으로 <a href="https://git-scm.com/">GIT</a>이 있다. 
+                        리누스 토발즈는 초기에 리눅스 커널 소스 코드를 관리하면서 기존의 <a href="#1"><font size="3px">[1]</font>버전 관리 시스템(VCS)</a>이 마음에 들지 않는다는 이유로 아예 사용하지 않았다. 그러다, 버전 관리에 어려움을 겪자, ‘BitKeeper’라는 프로그램을 사용하기로 결정했다. BitKeeper는 상용 소프트웨어였지만, 분산 처리 기능과 비교적 빠른 성능 덕분에 사용했다고 한다. 토발즈의 이런 선택은 자유 소프트웨어 단체로부터 비난을 받았으나 자유 소프트웨어 진영에서도 마땅한 대안을 제시하지는 못했다. 그러다가, BitKeeper 쪽에서 리버스 엔지니어링 문제로 리눅스에 관한 지원을 끊었고 결국, 토발즈는 직접 버전 관리 시스템을 만들기로 했다. 그렇게 만든 게 바로 Git이었다.
+                        Git은 기존의 버전관리 시스템과 다르게 저장소와 히스토리를 더불어 복제하기 때문에 서버에 문제가 생기면 이 복제물로 다시 작업을 시작할 수도 있다. 또한, 엄청나게 빨라서 대형 프로젝트에 사용하기도 좋다. 그 외에도 많은 강력한 장점들을 가진 Git은 오늘날 많은 개발자들이 빠르고 동시다발적으로 작업을 하는 데 많은 도움을 주고 있다. 
+                        
+                        <h3>2)근황</h3>
+                        최근 리누스 토발즈에 관한 소식은 실로 흥미롭다. 토발즈가 이제까지 자신의 무례한 행동에 관해 사과를 한 것이다. 토발즈는 사람을 코드로 평가하기로 유명했다. 범죄자라도 코드만 좋으면 충분히 프로젝트에 합류 시킬 수 있다고 생각했고, 만약 코드가 별로라면 인신공격을 서슴치 않았다. 그런 그가 이제까지 자신의 행동은 프로답지 못했다며 사과를 하고, 충분한 휴식기를 가지면서 프로다운 모습을 보이도록 노력하겠다고 말한 것이다. 그리고 리눅스는 새로운 CoC(Code of Conduct, 행동강령)를 받아들였는데, 
+                        <br>
+                        <img src="icon/리누스토발즈2.png">
+                        <br><br>
+                        현재 몇몇 리눅스 개발자들은 이 행동강령을 보고 코드로만 평가를 받아야할 개발자들이 코드 이외의 태도에 관해서도 신경을 써야하는 것이냐며 반발을 하고 있다. 자세한 내용은 아래의 페이지를 참고하길 바란다.
+                        <br><br>
+                        [리눅스 CoC] <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/code-of-conduct.rst">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/code-of-conduct.rst</a>
+                    </p>
+
+                    <a name="people2"></a>
+                    <h2>2.리차드 스톨만(Richard Matthew Stallman)</h2>
+                    <img src="icon/리차드스톨만.png">
+                    <p>
+                        <h3>1)업적</h3>
+                        자유소프트웨어 운동의 선구자이며 프로그래머이기도 하다. GNU 프로젝트와 자유 소프트웨어 재단을 설립하였고 GNU프로젝트를 진행하는 동안에는 GNU<a href="#2"><font size="3px">[2]</font>컴파일러 모음(GCC)</a>, GNU Emacs등을 개발했고 ‘카피레프트’의 개념과 GNU 일반 공중 허가서를 도입했다. 
+
+                        <h3>2)일화</h3>
+                        리처드 스톨만이 MIT 공대의 인공지능 실험실의 해커로 활동하고 있었을 때였다. 실험실 동료들은 프린터기의 소스코드를 마음대로 사용해서 프린터기를 종종 고장내곤 했다. 동료 중 누군가 프린터기가 오류 메세지를 보내도록 프로그램을 수정해 놓으면, 또다른 누군가가 와서 그 오류를 고치는 일종의 장난질을 했던 것이다. 하지만, 이 장난질은 오래가지 못했는데, 실험실에 Xerox라는 새로운 프린터기가 설치되었기 때문이다. Xerox 프린터기의 소스코드는 패키지 안에 포함되지 않았고 그들이 예전 프린터기에서 사용했던 유지 관리와 같은 것을 설치할 수 없었다. 후에 리처드 스톨만은 다른 실험실의 누군가가 Xerox의 소스코드를 가지고 있다는 것을 듣고 소스코드를 얻기 위해 노력한다. 마침내, 그가 소스코드를 얻었을 때, 어쩌면 그의 인생을 바꿔버리는 결정적인 한마디를 듣게 된다. 프린터기의 소스코드를 받았음을 비밀로 해야 하며 다른 사람에게 줘서는 안된다고 한 것이다. 스톨만은 이런 이기적인 행동에 화가 났고 독점 시스템의 위험성에 대해 깨닫기 시작한다. 그리고 곧 자유소프트웨어 운동을 하기로 결심하게 된다.
+                    </p>
+
+                    <a name="people3"></a>
+                    <h2>3.에릭 레이먼드(Eric Steven Raymond)</h2>
+                    <img src="icon/에릭레이먼드.png">
+                    <p>
+                        <h3>1)업적</h3>
+                        에릭 레이먼드는 인류학자이자 오픈 소스 운동의 대표 인물이다. 그는 리눅스 커널이나 GCC(GNU Compiler Collection) 등을 사용하는 오픈 소스 개발과정이 어떤 방식인지, 오픈 소스 방식을 취하면서 어떻게 고품질의 소프트웨어를 만들 수 있는지를 철학적인 관점에서 고찰하여 <a href="http://www.unterstein.net/su/docs/CathBaz.pdf">‘성당과 시장’</a>이라는 논문을 발표하였다.
+                        <h4>(1)성당과 시장</h4>
+                        에릭 레이먼드는 두 가지 방식의 자유 소프트웨어 개발 모델을 대조한다.
+                        <br>
+                        성당 모델: 출시 때에만 소스 코드를 공개하고 그 사이에는 제한된 개발자들만 소스코드에 접근 할 수 있는 폐쇄적 개발 스타일로, 소규모의 프로젝트 그룹이 체계적이고 권위적인 방법으로 운영된다. 릴리즈 간격은 매우 길다.
+                        <br>
+                        시장 모델: 소스 코드가 인터넷으로 일반에 공개된 상태로 개발된다. 프로젝트 외부의 사람들로부터 끊임없이 피드백을 요구하며 상당히 집중적인 상호 검토 과정을 거친다. 릴리즈 간격은 매우 짧다.
+                        <br>
+                        코드가 공개되어 있으면 많은 사람들이 테스트하고 훑어볼 수 있어서 버그는 빨리 잡힐 것이고 이에 반해, 성당 모델에서는 소스코드를 관련 개발자들만 볼 수 있으므로 버그를 잡는데 시간이 걸릴 것임을 주장하고 있다. (리누스의 법칙) 
+                    </p>
+
+                    <a name="people4"></a>
+                    <h2>4.이언 머독(Ian Murdock)</h2>
+                    <img src="icon/이언머독.png">
+                    <p>
+                        <h3>1)업적</h3>
+                        이언 머독은 리눅스 배포판 중 하나인 <a href="#3"><font size="3px">[3]</font>Debian GNU/LINUX(데비안)</a>를 창시한 개발자이며 <a href="#4"><font size="3px">[4]</font>자유소프트웨어</a>의 가장 충직한 지지자였다. 
+                        <br>
+                        데비안은 가장 큰 장점은 ‘안정성’에 있다. 국제 우주 정거장에 쓰이는 수많은 윈도우XP 노트북을 대체하기위해 데비안을 선택할 정도로 데비안의 안정성은 크게 알려져있다. 데비안 deb 패키지 저장소는 Experimental(실험)- Unstable(불안정) - Testing(테스팅) - Stable(안정)의 단계를 가지며 testing버전은 차기 배포판을 만들기 위한 준비 공간으로 testing버전의 버그 수가 일정한 수 이하가 되면 stable 버전으로 올라간다. 이런 배포판 세부구조의 엄격한 관리는 데비안 배포판의 안정성을 뒷받침하게 된다. 
+                        <br>
+                        데비안은 Debian Social Contract(DSC)를 만들어 데비안 자유소프트웨어 지침(DFSG)을 만들었는데, 이는 자유 소프트웨어 공동체가 오픈소스의 정의의 기초로 채택한 것이다.
+                        <br>
+                        데비안 자유 소프트웨어 지침 (DFSG, The Debian Free Software Guidelines)에 관한 내용은 아래의 페이지를 참고하길 바란다.
+                        <br><br>
+                        [데비안 페이지 이동] <a href="https://www.debian.org/social_contract.1.0.ko.html">https://www.debian.org/social_contract.1.0.ko.html</a>
+
+                    </p>
+                    <hr border='6px;' color='#000'>
+                    <h5>각주</h5>
+                    <h6><ul>
+                        <li><a name="1">[1]</a>파일의 변화를 시간에 따라 기록하여 과거 특정 시점의 버전을 불러올 수 있는 시스템을 말한다.</li>
+                        <li><a name="2">[2]</a>컴파일러란 특정 프로그래밍 언어로 쓰여 있는 문서를 다른 프로그래밍 언어로 옮기는 프로그램을 부른다.</li>
+                        <li><a name="3">[3]</a>Debian이라는 이름은 이안(Ian)머독과 그의 부인인 데브라(Debra)의 이름을 합쳐 만든 이름이다.</li>
+                        <li><a name="4">[4]</a>이안 머독은 2015년 12월 26일 밤과 다음날 새벽에 폭력 행위로 경찰에 연행된 후, 보석금을 지불하고 석방되었다. 그리고 28일, 자살을 예고하는 글을 남긴 후 숨진 채 발견되었다.</li>
+                    </ul></h6>
+                </div>
+            </div>
+        </article>
+
+        <div class="layout_margin" id="doc_right"></div>
+        
+    </main>
+    
+    <a name="bottom"></a>
+
+    <!--독립된 개체들-->
+    <div class="independent">
+        <!--네비게이션 바--><!--구조 추가 예정(메뉴 버튼 등)-->
+        <section id="remoteController">
+            <div class="RMC" id="box">
+                <div class="RMC" id="name">리모컨</div> 
+                
+                <hr width ="100px" color="black" size=3 style="margin: 0px;"/>
+                
+                <div class="RMC" id="link_box">
+                    <a href="history5.html"><img src="icon/left.png" class="icon"></a>
+                    <div class="RMC" id="mid">
+                        <a href="#top"><img src="icon/up.png" class="icon"></a>
+                        <a href="index.html"><img src="icon/home.png" class="icon"></a>
+                        <a href="#bottom"><img src="icon/down.png" class="icon"></a>
+                    </div>
+                    <a href="more.html"><img src="icon/right.png" class="icon"></a>
+                </div>
+        	</div>
+        </section>
+
+    </div>
+    <!--자바스크립트 추가 예정(메뉴 바 상호작용, 네비게이션 바 이동, 상단 바 노출(시간적 여유가 될 때)-->
+    <script type="text/javascript">
+        var menu_box = $(".menu#box");
+        var menu_name = $(".menu#name");
+        var menu_nav = $(".menu#nav");
+
+        menu_box.hover(() => {
+            menu_box.css("height", "100%");
+            menu_box.on("transitionend", function() {
+                menu_nav.css("visibility", "visible");
+            });
+        }, () => {
+            menu_box.off("transitionend");
+            menu_nav.css("visibility", "hidden");
+            menu_box.css("height", "100px");
+        })
+    </script>
+</body>
+</html>
